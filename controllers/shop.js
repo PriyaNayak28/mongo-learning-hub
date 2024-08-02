@@ -1,4 +1,4 @@
-const Product = require('../models/product');
+const Product = require('../00-starting-setup/models/product');
 
 exports.getProducts = (req, res, next) => {
   Product.findAll()
@@ -151,7 +151,7 @@ exports.postOrder = (req, res, next) => {
 
 exports.getOrders = (req, res, next) => {
   req.user
-    .getOrders({include: ['products']})
+    .getOrders({ include: ['products'] })
     .then(orders => {
       res.render('shop/orders', {
         path: '/orders',
